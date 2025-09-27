@@ -24,10 +24,15 @@ public class Entry
         if (parts.Length == 3)
         {
             Entry e = new Entry(parts[1], parts[2]);
-            e._date = parts[0]; // reuse the stored date
+            e._date = parts[0]; // reuse stored date
             return e;
         }
         return null;
+    }
+
+    public string GetDate()
+    {
+        return _date;
     }
 
     public void Display()

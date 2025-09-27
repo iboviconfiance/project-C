@@ -15,7 +15,7 @@ public class Journal
     {
         if (_entries.Count == 0)
         {
-            Console.WriteLine("The log is empty.");
+            Console.WriteLine("The journal is empty.");
             return;
         }
 
@@ -34,7 +34,7 @@ public class Journal
                 outputFile.WriteLine(entry.GetEntryAsCsv());
             }
         }
-        Console.WriteLine($"Log is store in {file}");
+        Console.WriteLine($"Journal saved to {file}");
     }
 
     public void LoadFromFile(string file)
@@ -51,11 +51,59 @@ public class Journal
                     _entries.Add(entry);
                 }
             }
-            Console.WriteLine($"Log loaded from {file}");
+            Console.WriteLine($"Journal loaded from {file}");
         }
         else
         {
             Console.WriteLine("⚠️ File not found.");
+        }
+    }
+
+    // ✨ Creative feature: delete an entry by index
+    public void DeleteEntry(int index)
+    {
+        if (index >= 0 && index < _entries.Count)
+        {
+            _entries.RemoveAt(index);
+            Console.WriteLine("Entry deleted successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid index.");
+        }
+    }
+
+    // ✨ Creative feature: search by date
+    public void SearchByDate(string date)
+    {
+        bool found = false;
+        foreach (Entry entry in _entries)
+        {
+            if (entry.GetDate() == date)
+            {
+                entry.Display();
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No entries found for this date.");
+        }
+    }
+
+    // Helper: show entries with index
+    public void DisplayAllWithIndex()
+    {
+        if (_entries.Count == 0)
+        {
+            Console.WriteLine("The journal is empty.");
+            return;
+        }
+
+        for (int i = 0; i < _entries.Count; i++)
+        {
+            Console.WriteLine($"{i}. {_entries[i].GetDate()} - entry preview");
         }
     }
 }
