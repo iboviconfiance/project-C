@@ -10,13 +10,13 @@ class Program
         bool running = true;
         while (running)
         {
-            Console.WriteLine("\n=== Menu Journal ===");
-            Console.WriteLine("1. Écrire une nouvelle entrée");
-            Console.WriteLine("2. Afficher le journal");
-            Console.WriteLine("3. Sauvegarder le journal dans un fichier");
-            Console.WriteLine("4. Charger le journal depuis un fichier");
-            Console.WriteLine("5. Quitter");
-            Console.Write("Votre choix: ");
+            Console.WriteLine("\n=== Log Menu ===");
+            Console.WriteLine("1. Write a new entry");
+            Console.WriteLine("2. Print the log");
+            Console.WriteLine("3. Save the log to a file");
+            Console.WriteLine("4. Load log from file");
+            Console.WriteLine("5. Exit");
+            Console.Write("your choice: ");
             string choice = Console.ReadLine();
 
             switch (choice)
@@ -36,13 +36,13 @@ class Program
                     break;
 
                 case "3":
-                    Console.Write("Nom du fichier à sauvegarder: ");
+                    Console.Write("Name of the file to store: ");
                     string saveFile = Console.ReadLine();
                     journal.SaveToFile(saveFile);
                     break;
 
                 case "4":
-                    Console.Write("Nom du fichier à charger: ");
+                    Console.Write("Name of the file to upload: ");
                     string loadFile = Console.ReadLine();
                     journal.LoadFromFile(loadFile);
                     break;
@@ -52,7 +52,7 @@ class Program
                     break;
 
                 default:
-                    Console.WriteLine("⚠️ Choix invalide. Essayez encore.");
+                    Console.WriteLine("⚠️ Invalid choice. Try again.");
                     break;
             }
         }

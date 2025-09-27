@@ -15,7 +15,7 @@ public class Journal
     {
         if (_entries.Count == 0)
         {
-            Console.WriteLine("Le journal est vide.");
+            Console.WriteLine("The log is empty.");
             return;
         }
 
@@ -34,7 +34,7 @@ public class Journal
                 outputFile.WriteLine(entry.GetEntryAsCsv());
             }
         }
-        Console.WriteLine($"Journal sauvegardé dans {file}");
+        Console.WriteLine($"Log is store in {file}");
     }
 
     public void LoadFromFile(string file)
@@ -51,11 +51,11 @@ public class Journal
                     _entries.Add(entry);
                 }
             }
-            Console.WriteLine($"Journal chargé depuis {file}");
+            Console.WriteLine($"Log loaded from {file}");
         }
         else
         {
-            Console.WriteLine("⚠️ Fichier introuvable.");
+            Console.WriteLine("⚠️ File not found.");
         }
     }
 }
